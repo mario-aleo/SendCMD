@@ -1,0 +1,26 @@
+<div flex layout layout-align="center center" style="width: 100%; height: 100%;">
+    
+  <md-whiteframe class="md-whiteframe-7dp" layout="column" layout-align="space-around center" style="width: 15em; height: 20em;">
+
+    <div flex layout layout-align="center center" style="width: 100%; margin-top: 1em;">
+      <md-input-container style="width: 86%;">
+        <label>Usuario</label>
+        <input required type="email" ng-model="login.user">
+      </md-input-container>
+    </div>
+
+    <div flex layout layout-align="center center" style="width: 100%;">
+      <md-input-container style="width: 86%;">
+        <label>Senha</label>
+        <input required type="password" ng-model="login.passwd">
+      </md-input-container>
+    </div>
+
+    <div flex layout layout-align="center center" style="width: 100%;">
+      <md-button class='md-raised md-primary' ng-click="login.validateUser()" style="width: 86%;">
+        Connectar
+      </md-button>
+    </div>
+
+  </md-whiteframe>
+</div>

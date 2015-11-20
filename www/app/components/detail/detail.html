@@ -1,0 +1,32 @@
+<div layout="column" layout-align="center center" style="width: 100%; height: 100%;">
+  <md-toolbar flex="10">
+    <div class="md-toolbar-tools" layout="row" layout-align="space-between center">
+      <md-button class="md-icon-button md-no-ink" aria-label="Back" ui-sref="main">
+        <ng-md-icon icon="chevron_left"></ng-md-icon>
+      </md-button>
+
+      <h2>
+        <span>{{ detail.title }}</span>
+      </h2>
+
+      <md-button class="md-icon-button" aria-label="Disable" ng-disabled="true">
+      </md-button>
+    </div>
+  </md-toolbar>
+
+  <div flex layout layout-align="center center">
+    <md-whiteframe class="md-whiteframe-7dp" layout="column" layout-align="start center" style="width: 20em; height: 30em;">
+        <div layout="row" layout-align="space-between center" style="width: 17em;">
+          <p>Modelo: {{ detail.eqp.produtoDes }}</p>
+          <p>Status: {{ detail.eqp.gpsStatus }}</p>
+        </div>
+
+        <md-list flex style="width: 19em; overflow: scroll;">
+          <md-list-item ng-repeat="verify in detail.status" detail-repeat ng-click="detail.confirmarEnvio(verify)">
+            <p> {{ verify.title }} </p>
+            <md-checkbox ng-disabled="true" class="md-secondary" ng-model="verify.success"></md-checkbox>
+          </md-list-item>
+        </md-list>
+    </md-whiteframe>
+  </div>
+</div>

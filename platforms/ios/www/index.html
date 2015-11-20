@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html ng-app="ngapp">
+
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="msapplication-tap-highlight" content="no"/>
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, target-densityDpi=device-dpi"/>
+
+    <link rel="stylesheet" type="text/css" href="assets/css/index.css">
+
+    <link rel="stylesheet" type="text/css" href="assets/css/angular-material.min.css">
+
+    <link rel="stylesheet" type="text/css" href="assets/css/angular-material-icons.css">
+
+    <title>NgApp</title>
+  </head>
+
+  <body style="position: fixed;" ng-cloak>
+
+
+    <ui-view></ui-view>
+
+
+    <!-- AngularJs -->
+    <script type="text/javascript" src="assets/lib/angular.min.js"></script>
+    <script type="text/javascript" src="assets/lib/angular-ui-router.min.js"></script>
+    <script type="text/javascript" src="assets/lib/angular-aria.min.js"></script>
+    <script type="text/javascript" src="assets/lib/angular-animate.min.js"></script>
+    <script type="text/javascript" src="assets/lib/ngTouch.js"></script>
+    <script type="text/javascript" src="assets/lib/angular-uuid4.min.js"></script>
+    <script type="text/javascript" src="assets/lib/angular-uuid.js"></script>
+    <script type="text/javascript" src="assets/lib/jsonrpc.js"></script>
+
+    <!-- Angular Material -->
+    <script type="text/javascript" src="assets/lib/angular-material-icons.min.js"></script>
+    <script type="text/javascript" src="assets/lib/angular-material.min.js"></script>
+
+    <!-- Cordova -->
+    <script type="text/javascript" src="assets/lib/ng-cordova.min.js"></script>
+    <script src="cordova.js"></script>
+
+    <!-- Modules -->
+    <script type="text/javascript" src="app/app.js"></script>
+
+    <!-- Routes -->
+    <script type="text/javascript" src="app/routes.js"></script>
+
+    <!-- Services -->
+    <script type="text/javascript" src="app/shared/info-service.js"></script>
+    <script type="text/javascript" src="app/components/login/login-service.js"></script>
+
+    <!-- Controllers -->
+    <script type="text/javascript" src="app/components/app/app-controller.js"></script>
+    <script type="text/javascript" src="app/components/login/login-controller.js"></script>
+  </body>
+</html>

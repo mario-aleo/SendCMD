@@ -1,0 +1,35 @@
+<md-content style='width: 100%; height: 100%;' ng-cloak="">
+    
+    <md-list>
+        
+        <md-divider></md-divider>
+        
+        <md-list-item ng-repeat="car in fleet.listFleet">
+            
+            <div class="md-list-item-text" layout="row" layout-align="space-between" style="width: 100%;" ng-click="fleet.goToFleetDetails({{ car.identificador }})">
+                
+                <div layout="column" style="margin-top: -10px; margin-bottom: -10px;">
+                    <h3>{{ car.identificador }}</h3>
+                    <h4 style="margin-top: -10px;">{{ car.sinonimo }}</h4>
+                </div>
+                
+                <div layout="row">
+                    <div layout="column" style="margin-top: -10px; margin-bottom: -10px;">
+                        <h5>{{ car.dataUltPos }} - {{ car.horaUltPos }}</h5>
+                        <h5 style="margin-top: -10px;">{{ car.municipio }}-{{ car.uf }}</h5>
+                    </div> 
+                    
+                    <div layout="column" layout-align="end center" style="margin-top: -10px; margin-bottom: -10px;">
+                        <ng-md-icon icon='chevron_right'></ng-md-icon> 
+                    </div>
+                </div>
+            </div>
+            
+            <md-divider></md-divider>
+            
+        </md-list-item>
+    </md-list>
+    
+    <md-toolbar style="background-color: transparent;"></md-toolbar>
+    
+</md-content>

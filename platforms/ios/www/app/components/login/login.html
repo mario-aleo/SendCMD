@@ -1,0 +1,25 @@
+<md-content layout='column' layout-align="center center" style='width: 100%; height: 100%;'>
+    
+    <md-whiteframe class="md-whiteframe-z4" layout="column" layout-align="space-around center" style="width: 80%; height: 60%;" id="loginCard">
+
+        <md-input-container>
+            <label>Usuario</label>
+            <input required type="email" ng-model="login.user">
+        </md-input-container>
+
+        <md-input-container style="margin-top: -30px;">
+            <label>Senha</label>
+            <input required type="password" ng-model="login.passwd">
+        </md-input-container>
+
+        <md-whiteframe class="md-whiteframe-z1" layout="row" layout-align="center center" style="background-color: #F44336; height: 20px; width: 178px;" ng-show="login.showMsg" id=loginMsg>
+            <p style="color: white">{{login.msg}}</p>
+        </md-whiteframe>
+
+        <md-button class='md-raised md-primary' ng-click="login.validate()">
+            <p>Connectar</p>
+        </md-button>
+
+    </md-whiteframe>
+    
+</md-content>

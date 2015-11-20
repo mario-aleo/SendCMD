@@ -1,0 +1,31 @@
+<div flex layout="column" layout-align="center center" style="width: 100%; height: 100%;" ng-cloak>
+  <md-toolbar flex="10">
+    <div class="md-toolbar-tools" layout="row" layout-align="space-between center">
+      <md-button class="md-icon-button" aria-label="Disable" ng-disabled="true">
+      </md-button>
+
+      <h2>
+        <span>Main Page</span>
+      </h2>
+
+      <md-button class="md-icon-button" aria-label="Disable" ng-disabled="true">
+      </md-button>
+    </div>
+  </md-toolbar>
+
+    <md-content style="width: 100%;">
+      <md-list>
+        <md-list-item class="md-2-line" ng-repeat="eqp in main.eqpList" main-repeat ui-sref="detail({ veiculoID: eqp.id, veiculoData: eqp })" ng-cloak>
+          <ng-md-icon icon="vpn_key" class="md-avatar"></ng-md-icon>
+          <div class="md-list-item-text" layout="column">
+            <h3>{{ eqp.identificador }}</h3>
+            <p>{{ eqp.sinonimo }}</p>
+          </div>
+          <div class="md-list-item-text" layout="column" layout-align="center end">
+            <p>{{ eqp.dataUltPos }} - {{ eqp.horaUltPos }}</p>
+            <p>{{ eqp.municipio }} - {{ eqp.uf }}</p>
+          </div>
+        </md-list-item>
+      </md-list>
+    </md-content>
+</div>

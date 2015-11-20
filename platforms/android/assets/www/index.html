@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html ng-app="ngapp">
+
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="msapplication-tap-highlight" content="no"/>
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, target-densityDpi=device-dpi"/>
+
+    <link rel="stylesheet" type="text/css" href="assets/css/index.css">
+
+    <link rel="stylesheet" type="text/css" href="assets/css/angular-material.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/angular-material-icons.css">
+
+    <link rel="stylesheet" type="text/css" href="assets/css/angular-spinkit.min.css">
+
+    <title>NgApp</title>
+  </head>
+
+  <body style="position: fixed;">
+
+    <loading></loading>
+
+    <ui-view></ui-view ng-cloak>
+
+
+
+    <!-- AngularJs -->
+    <script type="text/javascript" src="assets/lib/angular.min.js"></script>
+    <script type="text/javascript" src="assets/lib/angular-ui-router.min.js"></script>
+    <script type="text/javascript" src="assets/lib/angular-aria.min.js"></script>
+    <script type="text/javascript" src="assets/lib/angular-animate.min.js"></script>
+    <script type="text/javascript" src="assets/lib/ngTouch.js"></script>
+    <script type="text/javascript" src="assets/lib/angular-uuid4.min.js"></script>
+    <script type="text/javascript" src="assets/lib/angular-uuid.js"></script>
+    <script type="text/javascript" src="assets/lib/jsonrpc.js"></script>
+    <script type="text/javascript" src="assets/lib/angular-spinkit.min.js"></script>
+
+    <!-- Angular Material -->
+    <script type="text/javascript" src="assets/lib/angular-material-icons.min.js"></script>
+    <script type="text/javascript" src="assets/lib/angular-material.js"></script>
+
+    <!-- Cordova -->
+    <script type="text/javascript" src="assets/lib/ng-cordova.min.js"></script>
+    <script src="cordova.js"></script>
+
+    <!-- Modules -->
+    <script type="text/javascript" src="app/app.js"></script>
+
+    <!-- Routes -->
+    <script type="text/javascript" src="app/routes.js"></script>
+
+    <!-- Services -->
+    <script type="text/javascript" src="app/shared/routeLoading.js"></script>
+    <script type="text/javascript" src="app/shared/info-service.js"></script>
+    <script type="text/javascript" src="app/components/login/login-service.js"></script>
+    <script type="text/javascript" src="app/components/main/main-service.js"></script>
+    <script type="text/javascript" src="app/components/detail/detail-service.js"></script>
+
+    <!-- Controllers -->
+    <script type="text/javascript" src="app/components/main/main-controller.js"></script>
+    <script type="text/javascript" src="app/components/login/login-controller.js"></script>
+    <script type="text/javascript" src="app/components/detail/detail-controller.js"></script>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+<md-content layout="column" layout-align="space-between center" style="width: 100%; height: 100%;" id='content'>
+
+    <md-whiteframe class="md-whiteframe-z4" layout="column" layout-align="center center" style="width: 95%; height: 65%; margin-top: 10px;" id='menu-map'>
+
+        <ui-gmap-google-map center='main.map.center' zoom='main.map.zoom' options='main.map.option' control="main.map.control" events="main.map.event">
+            <ui-gmap-marker ng-repeat="point in main.map.markers" coords="point.coords" idkey="point.id">
+            </ui-gmap-marker>
+        </ui-gmap-google-map>
+
+    </md-whiteframe>
+    
+    <md-button class="md-raised" style="width: 95%; min-height: 40px;" ng-click="main.goToFleet()">
+        <p>Frota</p>
+    </md-button>
+
+    <md-button class="md-raised" style="width: 95%; min-height: 40px;" ng-click="main.goToNotification()">
+        <p>Notificações</p>
+    </md-button>
+    
+    <md-toolbar style="background-color: transparent;"></md-toolbar>
+
+</md-content>
