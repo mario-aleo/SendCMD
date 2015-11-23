@@ -1,9 +1,9 @@
 'use strict';
 
 angular.module('ngapp').config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider){
-    
-    $urlRouterProvider.otherwise('/main');
-    
+
+    $urlRouterProvider.otherwise('/login');
+
     $stateProvider.state('main', {
         url: '/main',
         templateUrl: 'app/components/main/main.html',
@@ -18,25 +18,12 @@ angular.module('ngapp').config(['$stateProvider', '$urlRouterProvider', function
         controller: 'LoginController',
         controllerAs: 'login'
     })
-    .state('notify', {
-        url: '/notify',
-        templateUrl: 'app/components/notification/notification.html',
-        title: 'Notificações',
-        controller: 'NotificationController',
-        controllerAs: 'notify'
-    })
-    .state('fleet', {
-        url: '/fleet',
-        templateUrl: 'app/components/fleet/fleet.html',
-        title: 'Frota',
-        controller: 'FleetController',
-        controllerAs: 'fleet'
-    })
-    .state('fleetDetails', {
-        url: '/fleet/:fleetId',
-        templateUrl: 'fleetdetails.html',
-        controller: 'FleetDetailsController',
-        controllerAs: 'details'
+    .state('detail', {
+        url: '/detail/:veiculoID',
+        templateUrl: 'app/components/detail/detail.html',
+        params: { veiculoData: null },
+        controller: 'DetailController',
+        controllerAs: 'detail'
     });
-    
+
 }]);

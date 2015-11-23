@@ -18,6 +18,15 @@
  */
 * {
     -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+    text-transform: none;
+}
+
+[ng\:cloak], [ng-cloak], .ng-cloak {
+    display: none;
+}
+
+div{
+  width: 100%;
 }
 
 body {
@@ -98,39 +107,14 @@ h1 {
     50% { opacity: 0.4; }
     to { opacity: 1.0; }
 }
- 
+
 @-webkit-keyframes fade {
     from { opacity: 1.0; }
     50% { opacity: 0.4; }
     to { opacity: 1.0; }
 }
- 
+
 .blink {
     animation:fade 3000ms infinite;
     -webkit-animation:fade 3000ms infinite;
-}
-
-.angular-google-map,
-.angular-google-map-container {
-
-    -webkit-align-items: center;
-    -ms-flex-align: center;
-    align-items: center;
-    
-    -webkit-justify-content: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-
-    -ms-flex-direction: column;
-    flex-direction: column;
-    -webkit-flex-direction: column;
-
-    box-sizing: border-box;
-    display: -webkit-flex;
-    display: -moz-flex;
-    display: -ms-flexbox;
-    display: flex;
-    
-    width: 95%;
-    height: 95%;
 }

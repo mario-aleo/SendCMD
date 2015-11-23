@@ -70,6 +70,7 @@ angular.module('ngapp').controller('LoginController', function(global, loginServ
     );
   };
 
+
   // Criando Listener Para Fechar o Teclado com Click Fora do Elemento Ativo
   document.addEventListener("click", function(){
     document.activeElement.blur();

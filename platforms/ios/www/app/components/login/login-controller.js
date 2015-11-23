@@ -1,65 +1,79 @@
 'use strict';
 
-angular.module('ngapp').controller('LoginController', function(global, loginService, $state, $scope, $cordovaDevice, $rootScope){
-    var ctrl = this;
-    
-    ctrl.platf = $rootScope.platform;
-    
-    ctrl.msg = 'Usuario / Senha Invalido';
-    
-    ctrl.showMsg = false;
-    
-    ctrl.user = global.info.user || null;
-    
-    ctrl.passwd = null;
-    
-    global.info.cliID = null;
-    
-    global.info.usuID = null;
-    
-    var grp = function(){
-        loginService.grp({"key": global.info.key, "usuID": global.info.usuID})
-        .success(function(data){
-            if(data.value == 0){
-                global.info.grpID = data.value;
-            } else{
-                global.info.grpID = data.objects[0].grpID;
-            }
-        })
-        .error(function(err){
-            global.info.grpID = -2;
-        });
-    };
-    
-    ctrl.validate = function(){
-        loginService.login({"key": global.info.key, "user": ctrl.user, "pass": ctrl.passwd, "tipo": 0})
-        .success(function(data){
-            if(data.value == -1 || data.value == 0){
-                document.getElementById('loginMsg').style.width = '178px';
-                ctrl.msg = 'Usuario / Senha Invalido';
-                ctrl.showMsg = true;
-                ctrl.passwd = '';
-            } else{
-                ctrl.showMsg = false;
-                global.info.cliID = data.objects[0].cliID;
-                global.info.usuID = data.objects[0].usuID;
-                global.info.seeCmd = data.objects[0].visualizaComandos;
-                global.info.user = ctrl.user;
-                grp();
-                ctrl.msg = 'Sucesso';
-                $state.go('main');
-            }
-        })
-        .error(function(err){
-            document.getElementById('loginMsg').style.width = '104px';
-            ctrl.msg = 'Sem conexão';
-            ctrl.showMsg = true;
-            ctrl.passwd = '';
-        });
-    };   
-    
-    if(ctrl.platf !== 'iOS'){
-        var min = document.getElementById('loginCard').offsetHeight;
-        document.getElementById('loginCard').style.minHeight = min + 'px';
-    }
+angular.module('ngapp').controller('LoginController', function(global, loginService, $cordovaKeyboard, $state, $mdDialog){
+
+  // Limpando Parametros de Login
+  global.info.cliID = null;
+
+  global.info.usuID = null;
+  // Fim da Limpeza de Parametros de Login
+
+
+  // Inicializando Variaveis
+  var ctrl = this;
+
+  this.user = global.info.user || null;
+
+  this.passwd = '';
+  //Fim da Inicialização de Variaveis
+
+
+  // Criando Função de Login
+  this.validateUser = function(){
+    loginService.login({"key": global.info.key, "user": this.user, "pass": this.passwd, "tipo": 18})
+      .success(function(data){
+        if(data.value == -1 || data.value == 0){
+          console.log("Error: Wrong Login/Password ");
+          ctrl.erroLogin();
+          ctrl.passwd = '';
+        } else{
+          console.log("Success: Login Authorized");
+          global.info.cliID = data.objects[0].cliID;
+          global.info.usuID = data.objects[0].usuID;
+          global.info.seeCmd = data.objects[0].visualizaComandos;
+          global.info.user = ctrl.user;
+          $state.go('main');
+        }
+      })
+      .error(function(err){
+        console.log("Error " + err + ": Sem Conexão");
+        ctrl.semConexao();
+        ctrl.passwd = '';
+      });
+  };
+  // Fim da Função de Login
+
+
+  this.erroLogin = function(ev) {
+    $mdDialog.show(
+      $mdDialog.alert()
+        .parent(angular.element(document.querySelector('#ErroLogin')))
+        .clickOutsideToClose(true)
+        .title('')
+        .content('Login ou Senha incorreto.')
+        .ariaLabel('Erro Login')
+        .ok('Ok')
+        .targetEvent(ev)
+    );
+  };
+
+  this.semConexao = function(ev) {
+    $mdDialog.show(
+      $mdDialog.alert()
+        .parent(angular.element(document.querySelector('#ErroConexão')))
+        .clickOutsideToClose(true)
+        .title('')
+        .content('Sem conexão com a internet.')
+        .ariaLabel('Erro Conecxão')
+        .ok('Ok')
+        .targetEvent(ev)
+    );
+  };
+
+
+  // Criando Listener Para Fechar o Teclado com Click Fora do Elemento Ativo
+  document.addEventListener("click", function(){
+    document.activeElement.blur();
+  });
+  // Fim da Criação do Listener
 });

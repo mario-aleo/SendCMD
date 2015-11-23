@@ -1,25 +1,25 @@
-<md-content layout='column' layout-align="center center" style='width: 100%; height: 100%;'>
-    
-    <md-whiteframe class="md-whiteframe-z4" layout="column" layout-align="space-around center" style="width: 80%; height: 60%;" id="loginCard">
+<div flex layout layout-align="center center" style="width: 100%; height: 100%;">
 
-        <md-input-container>
-            <label>Usuario</label>
-            <input required type="email" ng-model="login.user">
-        </md-input-container>
+  <md-whiteframe class="md-whiteframe-7dp" layout="column" layout-align="space-around center" style="width: 15em; height: 20em;">
 
-        <md-input-container style="margin-top: -30px;">
-            <label>Senha</label>
-            <input required type="password" ng-model="login.passwd">
-        </md-input-container>
+    <div flex layout layout-align="center center" style="width: 100%; margin-top: 1em;">
+      <md-input-container style="width: 86%;">
+        <label>Usuario</label>
+        <input required type="email" ng-model="login.user">
+      </md-input-container>
+    </div>
 
-        <md-whiteframe class="md-whiteframe-z1" layout="row" layout-align="center center" style="background-color: #F44336; height: 20px; width: 178px;" ng-show="login.showMsg" id=loginMsg>
-            <p style="color: white">{{login.msg}}</p>
-        </md-whiteframe>
+    <div flex layout layout-align="center center" style="width: 100%;">
+      <md-input-container style="width: 86%;">
+        <label>Senha</label>
+        <input required type="password" ng-model="login.passwd">
+      </md-input-container>
+    </div>
 
-        <md-button class='md-raised md-primary' ng-click="login.validate()">
-            <p>Connectar</p>
-        </md-button>
-
-    </md-whiteframe>
-    
-</md-content>
+    <div flex layout layout-align="center center" style="width: 100%;">
+      <md-button class='md-raised md-primary' ng-click="login.validateUser()" style="width: 86%;">
+        Connectar
+      </md-button>
+    </div>
+  </md-whiteframe>
+</div>
